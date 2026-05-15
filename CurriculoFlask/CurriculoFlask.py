@@ -1,0 +1,61 @@
+import os
+from flask import Flask, send_file
+
+app = Flask(__name__)
+
+# Caminho absoluto da sua imagem
+CAMINHO_IMAGEM = r"H:\Python\2Etapa\CurriculoFlask\download.jpg"
+
+
+@app.route("/imagem")
+def obter_imagem():
+    if os.path.exists(CAMINHO_IMAGEM):
+        return send_file(CAMINHO_IMAGEM, mimetype="image/jpeg")
+    return "Imagem não encontrada", 404
+
+
+@app.route("/")
+def home():
+    return """
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Currículo - Theo Andrade Silva</title>
+        </head>
+        <style>
+        body{ 
+            background-image: url('/imagem');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        h1{ color: #000000; }
+        </style>
+        <body>
+            <h1>Currículo</h1>
+            <h2>Bem-vindo ao meu currículo!</h2>
+
+            <h3>Informações Pessoais</h3>
+            <ul>
+                <li><b>Nome:</b> Theo Andrade Silva</li>
+                <li><b>Email:</b> andradetheopessoal@gmail.com</li>
+                <li><b>Telefone:</b> (31) 99178-1499</li>     
+            </ul>
+
+            <h3>Experiência Profissional e Escolar</h3>
+            <ul>
+                <li><b>Cotemig:</b> Jan - 2024 / Dez - 2026</li>
+                <li><b>UAIPDV:</b> Nov 2024 / Jun 2025</li>
+                <li><b>ThynkrAI:</b> Ago 2025 / Out 2025</li>  
+                <li><b>Coopfy:</b> Dez 2025 / Atualmente</li>    
+            </ul>
+        </body>
+        </html>
+    """
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
