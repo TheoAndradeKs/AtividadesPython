@@ -1,0 +1,47 @@
+/* Reset básico para remover margens padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+    background-color: #f4f4f4; /* Cor de fundo suave para o site */
+}
+
+.menu {
+    width: 250px; /* Um pouco mais largo para melhor leitura */
+    background-color: #1e3a8a; /* Azul escuro mais moderno que o "blue" puro */
+    padding: 20px;
+}
+
+.conteudo {
+    flex: 1;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.menu ul {
+    list-style-type: none; /* Corrigido: era "nome" */
+}
+
+.menu ul li a {
+    text-decoration: none; /* Corrigido: era "nome" */
+    color: #ffffff;
+    display: block;
+    padding: 12px 15px;
+    border-radius: 6px; /* Bordas arredondadas nos links */
+    transition: background-color 0.3s; /* Transição suave para o efeito de hover */
+}
+
+/* Efeito ao passar o mouse nos links do menu */
+.menu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Destaque sutil */
+}
+
+.sigma{
+    padding-top: 20em;
+}
